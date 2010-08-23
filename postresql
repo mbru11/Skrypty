@@ -1,0 +1,14 @@
+chconfig postgresql on
+service postgresql start
+su - postres
+
+psql -d utf -h <ip> -U <user> -W < <file>
+
+
+
+pg_dump > outfile
+psql dbname < infile
+
+
+
+\dp - all tables
