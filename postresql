@@ -5,10 +5,28 @@ su - postres
 psql -d utf -h <ip> -U <user> -W < <file>
 
 
-
+dump and restore from root:
 pg_dump > outfile
 psql dbname < infile
 
 
 
 \dp - all tables
+
+
+
+adduser postgres
+mkdir /opt/pgsl/data -p
+chown postgres /opt/pgsql/data
+su - postgres
+initdb -D data/
+/opt/pgsql/bin/postmaster -D data
+
+
+psql 	
+	-f <file>
+	-d <database>
+	-h <ip>
+	-p <port>
+
+createdb -E
